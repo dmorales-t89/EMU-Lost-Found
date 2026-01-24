@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.colors.min.css">
+        <title> Sample page</title>
+    </head>
+    <!-- Navbar -->
+    <body background="E8F1F2">
+        <header class="header">
+            <nav class="navbar">
+                <ul class="nav-links">
+                    <li><a href="/" class="contrast">EMU HOME</a></li>
+                    <li>|</li>
+                    <li><a href="/login" class="contrast">CAMPUS</a></li>
+                </ul>
+                <ul>
+                    <form method="get" style="display: inline-flex; width: 100%">
+                        <input name="search" type="text" class="tags" placeholder="Search" aria-label="Search" style="margin-bottom: 0px;">
+                    </form>
+                </ul>
+            </nav>
+        </header>
+        <header class="header">
+            <nav class="sub-navbar">
+                <ul class="sub-nav-links">
+                    <li><img src="https://emu.edu/_resources/images/emu-lettermark-logo-color-white.png" width="170" height="35"></li>
+                </ul>
+                <ul>
+                    <li><a href="/login" class="contrast">Login</a></li>
+                </ul>
+            </nav>
+        </header>
+        <!-- Sort -->
+        <main class="container">
+            <div class="grid">
+                <form method="get" style="display: inline-flex; width: 100%">
+                    <div class="tags">
+                        <input name="tags" type="text" class="tags" placeholder="Write tags" aria-label="Tags" style="margin-bottom: 0px;">
+                        <button class="sort-dropdown" type="submit">
+                            <p>Select</p>
+                        </button>
+                    </div>
+                    <div class="sort">
+                        <p style="margin-bottom: 0px;">Sort by:</p>
+                        <fieldset class="sort-dropdown">
+                            <label>
+                                <input type="radio" name="post-sort" value = "option1" checked />
+                                By most likes
+                            </label>
+                            <label>
+                                <input type="radio" name="post-sort" value = "option2"/>
+                                By most recent
+                            </label>
+                            <label>
+                                <input type="radio" name="post-sort" value = "option3"/>
+                                By least likes
+                            </label>
+                            <label>
+                                <input type="radio" name="post-sort" value = "option4"/>
+                                By least recent
+                            </label>
+                            <button class="sort-dropdown" style="position: relative;" type="submit">
+                                <p>Select</p>
+                            </button>
+                        </fieldset>
+                    </div>
+                </form>
+            </div>
+            <hr></hr>
+            <!-- Items Cards -->>
+            <div class="grid">
+                <a href="link to profile">
+                    <div class="post-image">
+                        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.pixabay.com%2Fphoto%2F2015%2F10%2F05%2F22%2F37%2Fblank-profile-picture-973460_1280.png&f=1&nofb=1&ipt=14271c7268ebcb0abfe3c7a7d65ed0ad4a21906affd42fd252e401bf255aef81" height="350" width="350"/>
+                    </div>
+                </a>
+                <div class="post-content">
+                    <a href="link to profile">
+                        <h1>Title</h1>
+                    </a>
+                    <hr></hr>
+                    <p>Description</p>
+                </div>
+            </div>
+            <!-- End item cards -->
+        </main>
+    </body>
+    <div class="mountain-footer"></div>
+    <footer class="container">
+        <p class="no-margin">
+            <a href="https://github.com/picocss/pico">Privacy | Terms of Use | Trademarks | © 2025 WAGA BAGA BOBO</a>
+        </p>
+    </footer>
+</html>
