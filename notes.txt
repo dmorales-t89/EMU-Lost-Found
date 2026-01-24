@@ -1,31 +1,14 @@
-python -m venv env -> creates env
+cat me!
 
-source env/bin/activate -> activates env
-deactivate              -> deactivates env
+To run, clone repo and cd into folder, then: 
+python -m http.server
 
-pip install flask 	-> installs flask in env
-flask run         	-> starts flask
-
-flask db migrate    -> Run when you make class changes
-&& flask db upgrade
-
-pip freeze -> Lists installed pip packages
-
-echo -n hello | sha256sum -> Generates hash of hello in Konsole
-
-import werkzeug.security
-a = generate_password_hash('myPassword') -> Make a hash of myPassword
-
-sqlitebrowser app.db -> Open database
-sqlite_web app.db -> Open database but better
-
+--- GIT ---
+git add . 		        -> stage it. YOU HAVE TO DO THIS BEFORE COMMITTING
 git commit -m "message" -> commit with a message
-git add . 		-> stage it i think. YOU HAVE TO DO THIS BEFORE COMMITTING
-&& 			-> back to back commands
-git push --force -> Destructive, pushes reguardless of files missing
+&& 			            -> back to back commands
+git push --force        -> Destructive, pushes reguardless of files missing
 
----In Order---
-add, commit, and stage
-
-git add . && git commit -m "Be descriptive"
-git push
+-In order
+1. git add . && git commit -m "Be descriptive"
+2. git push
