@@ -35,10 +35,10 @@ hr {
 .navbar {
     margin-bottom: 0px;
     padding: 10px 10px;
-    height: 33px;
+    height: 60px;
     display: flex;
     align-items: center;
-    background: var(--hbg);
+    background: var(--navbg);
 }
 
 .navbar li {
@@ -54,11 +54,11 @@ hr {
     margin-bottom: 0px;
     display: flex;
     align-items: center;
-    background: var(--navbg);
+    background: var(--hbg);
 }
 
 .sub-nav-links {
-    padding: 10px !important:
+    padding: 10px !important;
 }
 
 .sub-navbar .sub-nav-links li {
