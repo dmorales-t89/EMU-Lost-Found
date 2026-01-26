@@ -1,0 +1,13 @@
+/* Need to organize this and add documentation */
+:root {
+    --bg: #102c52;
+    --border: #102c52;
+    --grid: #fff;
+    --text: #fff;
+    --button: #fff;
+
+    --hbg: #fff;
+    --hborder: #fff;
+    --search: #fff;
+    --navbg: #102c52;
+}

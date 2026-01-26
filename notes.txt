@@ -1,0 +1,14 @@
+cat me!
+
+To run, clone repo and cd into folder, then: 
+python -m http.server
+
+--- GIT ---
+git add . 		        -> stage it. YOU HAVE TO DO THIS BEFORE COMMITTING
+git commit -m "message" -> commit with a message
+&& 			            -> back to back commands
+git push --force        -> Destructive, pushes reguardless of files missing
+
+-In order
+1. git add . && git commit -m "Be descriptive"
+2. git push
