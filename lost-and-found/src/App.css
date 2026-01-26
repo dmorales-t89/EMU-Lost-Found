@@ -104,7 +104,8 @@
 /* ===== Items Grid ===== */
 .items-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  /* grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); Not working*/
+  grid-template-columns: repeat(4, 1fr); /* Working*/
   gap: 25px;
 }
 
