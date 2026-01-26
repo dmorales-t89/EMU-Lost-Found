@@ -1,42 +1,245 @@
-#root {
-  max-width: 1280px;
+/* ===== Color Variables ===== */
+:root {
+  --primary-blue: #102c52;
+  --white: #ffffff;
+  --light-gray: #f5f5f5;
+  --border-color: #e0e0e0;
+  --overlay-blue: rgba(16, 44, 82, 0.75);
+}
+
+/* ===== Navigation Styles ===== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background-color: var(--primary-blue);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar-logo img {
+  display: block;
+}
+
+.navbar-actions .sign-in-btn {
+  background-color: var(--primary-blue);
+  color: var(--white);
+  border: 2px solid var(--white);
+  padding: 8px 20px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.navbar-actions .sign-in-btn:hover {
+  background-color: var(--white);
+  color: var(--primary-blue);
+}
+
+.sub-navbar {
+  background-color: var(--white);
+  padding: 10px 40px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.sub-nav-links {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sub-nav-links li a {
+  color: #333;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.sub-nav-links li a:hover {
+  color: var(--primary-blue);
+}
+
+/* ===== Hero Banner Styles ===== */
+.hero-banner {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  height: 220px;
+  width: 100%;
+}
+
+.hero-overlay {
+  background-color: var(--overlay-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+.hero-title {
+  color: var(--white);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-style: italic;
+  font-size: 3.5rem;
+  font-weight: 400;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== Main Container ===== */
+.container {
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 30px 20px;
+}
+
+/* ===== Items Grid ===== */
+.items-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+/* ===== Item Card Styles ===== */
+.item-card {
+  background-color: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.item-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.item-card-image {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--light-gray);
+  padding: 15px;
+}
+
+.item-card-image img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.item-card-content {
+  padding: 15px;
+}
+
+.item-card-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 0 5px 0;
+  color: #333;
+}
+
+.item-card-location {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0 0 8px 0;
+}
+
+.item-card-date,
+.item-card-found {
+  font-size: 0.85rem;
+  color: #555;
+  margin: 0 0 5px 0;
+}
+
+.read-more-btn {
+  background-color: var(--primary-blue);
+  color: var(--white);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.2s;
+}
+
+.read-more-btn:hover {
+  background-color: #0d2240;
+}
+
+/* ===== Footer Styles ===== */
+.mountain-footer {
+  width: 100%;
+  background-image: url(https://emu.edu/_resources/images/home2019/mountain-footer.png);
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+  height: 200px;
+  margin-top: 40px;
+}
+
+.site-footer {
+  background-color: var(--primary-blue);
   text-align: center;
+  padding: 20px;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.site-footer p {
+  margin: 0;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.site-footer a {
+  color: var(--white);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.site-footer a:hover {
+  text-decoration: underline;
+}
+
+/* ===== Responsive Styles ===== */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 10px 20px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .sub-navbar {
+    padding: 10px 20px;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .items-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+  }
+
+  .container {
+    padding: 20px 15px;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2rem;
   }
-}
 
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+  .items-grid {
+    grid-template-columns: 1fr;
+  }
 }
