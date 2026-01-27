@@ -26,6 +26,8 @@ function SubNavbar() {
       <ul className="sub-nav-links">
         <li><a href="/">HOME</a></li>
         <li><a href="/lost-items">LOST ITEMS</a></li>
+        <li><a href="/lost-submit-form">LOST SUBMIT FORM</a></li>
+
       </ul>
     </nav>
   );
