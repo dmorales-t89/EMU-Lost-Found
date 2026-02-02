@@ -3,9 +3,9 @@ import React from 'react';
 function ItemCard({ 
   image, 
   title, 
-  location, 
+  currentLocation, 
   dateFound, 
-  locationFound,
+  locationLost,
   onReadMore 
 }) {
   return (
@@ -15,9 +15,9 @@ function ItemCard({
       </div>
       <div className="item-card-content">
         <h3 className="item-card-title">{title}</h3>
-        <p className="item-card-location">{location}</p>
+        <p className="item-card-location">{currentLocation}</p>
         <p className="item-card-date">Date Found: {dateFound}</p>
-        <p className="item-card-found">Location Found: {locationFound}</p>
+        <p className="item-card-found">Location Lost: {locationLost}</p>
         <button className="read-more-btn" onClick={onReadMore}>
           Read More
         </button>
