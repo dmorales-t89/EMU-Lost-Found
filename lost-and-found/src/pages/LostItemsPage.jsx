@@ -13,7 +13,7 @@ function LostItemsPage() {
 
   return (
     <>
-      <HeroBanner title="Lost Items" />
+      <HeroBanner title="Search Items" />
       <main className="container">
         <div className="items-grid">
           {sampleItems.map((item) => (

@@ -5,7 +5,7 @@ import LostSubmitForm from '../components/LostSubmitForm';
 function LostSubmitFormPage() {
   return (
     <>
-      <HeroBanner title="Report a Lost Item" />
+      <HeroBanner title="Report a Lost or Found Item" />
       <main className="container">
         <LostSubmitForm />
       </main>

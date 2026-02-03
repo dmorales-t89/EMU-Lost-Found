@@ -18,6 +18,7 @@
   position: sticky;
   top: 0;
   z-index: 100;
+  
 }
 
 .navbar-logo img {
@@ -62,9 +63,11 @@
   font-weight: 500;
 }
 
-.sub-nav-links li a:hover,
-.sub-nav-links li a.active {
+.sub-nav-links li a:hover{
   color: var(--primary-blue);
+}
+.sub-nav-links li a.active {
+  color: var(--secondary-blue);
 }
 
 .navbar-logo a {
@@ -403,7 +406,7 @@
 /* File input - underlined style to match */
 .lost-submit-form .form-group input[type="file"] {
   width: 100%;
-  padding: 4px 0 8px 0;
+  padding: 2px 0 10px 0;
   font-family: 'DM Sans', sans-serif;
   font-size: 0.95rem;
   border: none;

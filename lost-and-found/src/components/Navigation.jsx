@@ -28,8 +28,8 @@ function SubNavbar() {
     <nav className="sub-navbar">
       <ul className="sub-nav-links">
         <li><NavLink to="/" end>HOME</NavLink></li>
-        <li><NavLink to="/lost-items">LOST ITEMS</NavLink></li>
-        <li><NavLink to="/lost-submit-form">LOST SUBMIT FORM</NavLink></li>
+        <li><NavLink to="/lost-items">SEARCH FOR ITEMS</NavLink></li>
+        <li><NavLink to="/lost-submit-form">LOST AND FOUND FORM</NavLink></li>
       </ul>
     </nav>
   );
