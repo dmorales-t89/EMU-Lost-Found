@@ -319,8 +319,9 @@
   /* Full-width fields */
   .lost-submit-form .form-group:nth-child(1),
   .lost-submit-form .form-group:nth-child(2),
-  .lost-submit-form .form-group:nth-child(7),
-  .lost-submit-form .form-group:nth-child(8) {
+  .lost-submit-form .form-group:nth-child(3),
+  .lost-submit-form .form-group:nth-child(8),
+  .lost-submit-form .form-group:nth-child(9) {
     grid-column: 1 / -1;
   }
 }
@@ -342,6 +343,22 @@
   font-size: 0.95rem;
   color: #333;
   letter-spacing: 0.01em;
+}
+/* Select dropdown — styled like text inputs */
+.lost-submit-form .form-group select {
+  width: 100%;
+  padding: 12px 14px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #1a1a1a;
+  border: 1px solid #d1d5db;
+  border-bottom: 2px solid #d1d5db;
+  border-radius: 6px;
+  background-color: transparent;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+  appearance: none;
 }
 
 /* Text inputs and textarea - underlined style (Material-style) */
@@ -386,19 +403,19 @@
 /* File input - underlined style to match */
 .lost-submit-form .form-group input[type="file"] {
   width: 100%;
-  padding: 12px 0 14px 0;
+  padding: 4px 0 8px 0;
   font-family: 'DM Sans', sans-serif;
   font-size: 0.95rem;
   border: none;
   border-bottom: 2px solid #d1d5db;
-  border-radius: 0;
+  border-radius: 6px;
   background-color: transparent;
   transition: border-color 0.2s;
 }
 
 .lost-submit-form .form-group input[type="file"]::-webkit-file-upload-button {
   margin-right: 12px;
-  padding: 6px 12px;
+  padding: 8px 12px;
   font-family: 'DM Sans', sans-serif;
   font-size: 0.9rem;
   color: var(--primary-blue);
