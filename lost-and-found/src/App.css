@@ -1,6 +1,7 @@
 /* ===== Color Variables ===== */
 :root {
-  --primary-blue: #102c52;
+  --primary-blue: #1c3767;
+  --secondary-blue: #0056c0;
   --white: #ffffff;
   --light-gray: #f5f5f5;
   --border-color: #e0e0e0;
@@ -299,6 +300,150 @@
   border: 1px solid var(--border-color);
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Desktop: wider form with two-column layout */
+@media (min-width: 768px) {
+  .lost-submit-form {
+    max-width: 800px;
+    padding: 32px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 28px;
+  }
+
+  .lost-submit-form .form-group {
+    margin-bottom: 0;
+  }
+
+  /* Full-width fields */
+  .lost-submit-form .form-group:nth-child(1),
+  .lost-submit-form .form-group:nth-child(2),
+  .lost-submit-form .form-group:nth-child(7),
+  .lost-submit-form .form-group:nth-child(8) {
+    grid-column: 1 / -1;
+  }
+}
+/* Form groups - spacing between fields */
+.lost-submit-form .form-group {
+  margin-bottom: 20px;
+}
+
+.lost-submit-form .form-group:last-child {
+  margin-bottom: 0;
+}
+
+/* Labels */
+.lost-submit-form .form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: #333;
+  letter-spacing: 0.01em;
+}
+
+/* Text inputs and textarea - underlined style (Material-style) */
+.lost-submit-form .form-group input[type="text"],
+.lost-submit-form .form-group input[type="date"],
+.lost-submit-form .form-group input[type="email"],
+.lost-submit-form .form-group input[type="tel"],
+.lost-submit-form .form-group textarea {
+  width: 100%;
+  padding: 12px 14px 14px 14px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #1a1a1a;
+  letter-spacing: 0.01em;
+  border: none;
+  border: 1px solid #d1d5db;
+  border-bottom: 2px solid #d1d5db;
+  border-radius: 6px;
+  background-color: transparent;
+  transition: border-color 0.2s;
+}
+
+
+.lost-submit-form .form-group input:hover,
+.lost-submit-form .form-group textarea:hover {
+  border-bottom-color: #9ca3af;
+}
+
+.lost-submit-form .form-group input:focus,
+.lost-submit-form .form-group textarea:focus {
+  outline: none;
+  border-bottom-color: var(--secondary-blue);
+}
+
+.lost-submit-form .form-group textarea {
+  min-height: 110px;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+/* File input - underlined style to match */
+.lost-submit-form .form-group input[type="file"] {
+  width: 100%;
+  padding: 12px 0 14px 0;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  border: none;
+  border-bottom: 2px solid #d1d5db;
+  border-radius: 0;
+  background-color: transparent;
+  transition: border-color 0.2s;
+}
+
+.lost-submit-form .form-group input[type="file"]::-webkit-file-upload-button {
+  margin-right: 12px;
+  padding: 6px 12px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  color: var(--primary-blue);
+  background-color: transparent;
+  border: 1px solid var(--primary-blue);
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.lost-submit-form .form-group input[type="file"]:hover {
+  border-bottom-color: var(--primary-blue);
+}
+
+/* Error messages */
+.lost-submit-form .form-group .error {
+  display: block;
+  margin-top: 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #c62828;
+}
+
+/* Submit button */
+.lost-submit-form .form-group button[type="submit"] {
+  width: 100%;
+  padding: 14px 24px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--white);
+  background-color: var(--secondary-blue);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.lost-submit-form .form-group button[type="submit"]:hover {
+  background-color: #003c86;
+}
+
+.lost-submit-form .form-group button[type="submit"]:active {
+  transform: scale(0.99);
 }
 
 /* ===== Footer Styles ===== */

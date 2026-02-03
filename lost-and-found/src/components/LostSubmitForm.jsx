@@ -12,18 +12,18 @@ function LostSubmitForm() {
         <form className="lost-submit-form" onSubmit={handleSubmit(onSubmit)}>
             <div className="form-group">
                 <label htmlFor="title">Item Title:</label>
-                <input id="title" placeholder="Item Title" {...register("title", { required: "Item title is required." })} />
+                <input type="text" id="title" {...register("title", { required: "Item title is required." })} />
                 {errors.title && <span className="error">{errors.title.message}</span>}
             </div>
 
             <div className="form-group">
                 <label htmlFor="description">Description:</label>
-                <textarea id="description" placeholder="Description" {...register("description")} />
+                <textarea id="description" {...register("description")} />
             </div>
 
             <div className="form-group">
                 <label htmlFor="currentLocation">Current Location:</label>
-                <input id="currentLocation" placeholder="Current Location" {...register("currentLocation")} />
+                <input type="text" id="currentLocation" {...register("currentLocation")} />
             </div>
 
             <div className="form-group">
@@ -33,7 +33,7 @@ function LostSubmitForm() {
 
             <div className="form-group">
                 <label htmlFor="locationLost">Location Lost:</label>
-                <input id="locationLost" placeholder="Location Lost" {...register("locationLost")} />
+                <input type="text" id="locationLost" {...register("locationLost")} />
             </div>
 
             <div className="form-group">
@@ -44,7 +44,7 @@ function LostSubmitForm() {
 
             <div className="form-group">
                 <label htmlFor="contactInfo">Contact Info:</label>
-                <input id="contactInfo" placeholder="Contact Info" {...register("contactInfo", { required: "Contact information is required." })} />
+                <input type="text" id="contactInfo" {...register("contactInfo", { required: "Contact information is required." })} />
                 {errors.contactInfo && <span className="error">{errors.contactInfo.message}</span>}
             </div>
 
