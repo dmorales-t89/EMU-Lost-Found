@@ -1,41 +1,12 @@
 import { useForm } from "react-hook-form";
-import { supabase } from "../lib/supabaseClient";
+import { createItem } from "../lib/itemsApi";
 
 function LostSubmitForm() {
     const {register, handleSubmit, formState: {errors}, reset} = useForm();  
     
     const onSubmit = async (data) => {
         try {
-            let imageUrl = null;
-            if (data.image && data.image[0]) {
-                const file = data.image[0];
-                const fileName = `${Date.now()}_${file.name}`;
-                const { data: uploadData, error: uploadError } = await supabase.storage
-                    .from('lost-found-images')
-                    .upload(fileName, file);
-
-                if (uploadError) throw uploadError;
-
-                const { data:urlData } = supabase.storage
-                    .from('lost-found-images')
-                    .getPublicUrl(fileName);
-                imageUrl = urlData.publicUrl;
-            }
-            
-            const { error: insertError } = await supabase.from('items').insert([
-                {
-                    type: data.itemType,
-                    title: data.title,
-                    description: data.description || null,
-                    image_url: imageUrl,
-                    contact_info: data.contactInfo,
-                    current_location: data.currentLocation || null,
-                    date_event: data.dateEvent || null,
-                    event_location: data.eventLocation || null
-                }
-            ]);
-
-            if(insertError) throw insertError;
+            await createItem(data);
 
             alert("Your submission has been received!");
             reset();
