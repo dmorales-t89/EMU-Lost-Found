@@ -1,6 +1,7 @@
 /* ===== Color Variables ===== */
 :root {
-  --primary-blue: #1c3767;
+  --primary-blue: #0f2c52;
+  --link-hover: #f3a71e;
   --secondary-blue: #0056c0;
   --white: #ffffff;
   --light-gray: #f5f5f5;
@@ -64,7 +65,7 @@
 }
 
 .sub-nav-links li a:hover{
-  color: var(--primary-blue);
+  color: var(--link-hover);
 }
 .sub-nav-links li a.active {
   color: var(--secondary-blue);
@@ -266,20 +267,46 @@
   color: #333;
 }
 
+.item-card-label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.item-card-label img {
+  margin-right: 3px;
+}
+
 .item-card-location {
   font-size: 0.9rem;
   color: #666;
-  margin: 0 0 8px 0;
 }
 
 .item-card-date,
 .item-card-found {
   font-size: 0.85rem;
   color: #555;
-  margin: 0 0 5px 0;
+}
+
+.btns {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .read-more-btn {
+  background-color: var(--white);
+  color: var(--primary-blue);
+  border-width: 1px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.2s;
+}
+
+.claim-btn {
   background-color: var(--primary-blue);
   color: var(--white);
   border: none;
@@ -292,7 +319,11 @@
 }
 
 .read-more-btn:hover {
-  background-color: #0d2240;
+  background-color: var(--light-gray);
+}
+
+.claim-btn:hover {
+  background-color: var(--secondary-blue);
 }
 /* ===== Lost Submit Form Page ===== */
 .lost-submit-form {
