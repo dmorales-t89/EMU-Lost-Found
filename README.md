@@ -4,6 +4,7 @@ Users may:
 * Browse reported lost items
 * Report lost items belonging to someone else
 * Report items that have been lost
+
 This project seeks to remedy the issue of message boards and community information areas getting cluttered and making it difficult to report and find lost items by creating a specialized space for this specific purpose. 
 
 ## Getting Started:
@@ -18,22 +19,23 @@ Note: If npm fails to run the website or gives an error, try running: **npm inst
 
 ### Installation
 ```shell
-# 1. Clone the repository:
+#1. Clone the repository:
 
  git clone https://github.com/dmorales-t89/EMU-Lost-Found.git
 
-# 2. Enter the project folder: 
+#2. Enter the project folder: 
 
 cd EMU-Lost-Found/lost-and-found
 
-# 3. At this point, you need to create a local environment containing your Supabase credentials: sudo nano .env.local
+#3. At this point, you need to create a local environment containing your Supabase credentials: sudo nano .env.local
 
 # Inside the file, paste:
 
 VITE_SUPABASE_URL=
 VITE_SUPABASE_ANON_KEY=
 
-# 4. To get the url and key, go to your Supabase account, log in, and go to the setting for a new project. Under API, you can find your URL and Key, which you should put in the file. Save the file, and everything should be in place.
+#4. To get the url and key, go to your Supabase account, log in, and go to the setting for a new project. Under API, you can find your URL and Key, which you should put in the file.
+# Save the file, and everything should be in place.
 
 #5. Then, you can now run the site with npm: 
 
