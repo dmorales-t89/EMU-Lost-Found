@@ -29,7 +29,7 @@ This project seeks to remedy the issue of message boards and community informati
 Note: If npm fails to run the website or gives an error, try running: **npm install --include=dev**
 
 ## Supabase Setup (Required)
-This project expects you to create your own Supabase project and configure:
+The Supabase Setup SQL is provided in the root file of the project in the Supabase Setup folder. This project expects you to create your own Supabase project and configure:
 * A table named `items` with these columns:
   * `id` (uuid or bigint, primary key)
   * `type` (text: `lost` or `found`)
@@ -55,21 +55,23 @@ This project expects you to create your own Supabase project and configure:
 
 cd EMU-Lost-Found/lost-and-found
 
-#3. At this point, you need to create a local environment containing your Supabase credentials: sudo nano .env.local
+#3, Setup supabase database as mentioned above.
+
+#4. At this point, you need to create a local environment containing your Supabase credentials: sudo nano .env.local
 
 # Inside the file, paste:
 
 VITE_SUPABASE_URL=
 VITE_SUPABASE_ANON_KEY=
 
-#4. To get the url and key, go to your Supabase account, log in, and go to the setting for a new project. Under API, you can find your URL and Key, which you should put in the file.
+#5. To get the url and key, go to your Supabase account, log in, and go to the setting for a new project. Under API, you can find your URL and Key, which you should put in the file.
 # Save the file, and everything should be in place.
 
-#5. Then, you can now run the site with npm: 
+#6. Then, you can now run the site with npm: 
 
 npm run dev
 
-#6. The site can be accessed at localhost on a port specified by the message in your terminal (http://localhost:your-port-number/), which you can enter in place of your-port-number or ctl+left click the link provided which should look something like this but with a different port number:
+#7. The site can be accessed at localhost on a port specified by the message in your terminal (http://localhost:your-port-number/), which you can enter in place of your-port-number or ctl+left click the link provided which should look something like this but with a different port number:
 
 -> Local:   http://localhost:5175/
 
