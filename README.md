@@ -55,7 +55,7 @@ The Supabase Setup SQL is provided in the root file of the project in the Supaba
 
 cd EMU-Lost-Found/lost-and-found
 
-#3, Setup supabase database as mentioned above.
+#3. Setup supabase database as mentioned above.
 
 #4. At this point, you need to create a local environment containing your Supabase credentials: sudo nano .env.local
 
