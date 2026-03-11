@@ -7,6 +7,17 @@ Users may:
 
 This project seeks to remedy the issue of message boards and community information areas getting cluttered and making it difficult to report and find lost items by creating a specialized space for this specific purpose. 
 
+## Tech Stack
+* React + Vite
+* Supabase (Postgres + Storage)
+* React Router
+* react-hook-form
+
+## Features
+* Browse submitted lost/found items
+* View item details
+* Submit a lost/found item with an image
+  
 ## Getting Started:
 ### Requirements: 
 * Node.js
@@ -16,6 +27,23 @@ This project seeks to remedy the issue of message boards and community informati
 * Supabase account
 
 Note: If npm fails to run the website or gives an error, try running: **npm install --include=dev**
+
+## Supabase Setup (Required)
+This project expects you to create your own Supabase project and configure:
+* A table named `items` with these columns:
+  * `id` (uuid or bigint, primary key)
+  * `type` (text: `lost` or `found`)
+  * `title` (text)
+  * `description` (text, nullable)
+  * `image_url` (text, nullable)
+  * `contact_info` (text)
+  * `current_location` (text, nullable)
+  * `date_event` (date or timestamptz, nullable)
+  * `event_location` (text, nullable)
+  * `created_at` (timestamptz, default now())
+
+* A Storage bucket named `lost-found-images`
+* Row Level Security/policies that allow the app to read and insert items (and upload/read images), depending on your security requirements.
 
 ### Installation
 ```shell
@@ -61,7 +89,8 @@ npm run dev
 The style is made to closely align with the Eastern Mennonite University website for user clarity and to give a sense of familiarity and pride.
 
 ## Deployment: 
-The app is currently hosted locally for development. When a production URL is available, it will be announced here.
+Deployed on Vercel for now. We hope to collaborate with EMU and get it hosted by their servers before the end of the quarter. If deploying your own fork, set Vercel Root Directory to lost-and-found and add the environment variables above. https://emu-lost-found.vercel.app/
+
 ## Errors:
 Though some errors were addressed in the Getting Started section, we are a small team and can’t catch everything. If you find an error, don’t be afraid to create a bug report on our GitHub page: https://github.com/dmorales-t89/EMU-Lost-Found/issues
 ## Contributing: 
