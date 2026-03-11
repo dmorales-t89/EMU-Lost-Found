@@ -29,7 +29,7 @@ This project seeks to remedy the issue of message boards and community informati
 Note: If npm fails to run the website or gives an error, try running: **npm install --include=dev**
 
 ## Supabase Setup (Required)
-The Supabase Setup SQL is provided in the root file of the project in the Supabase Setup folder. This project expects you to create your own Supabase project and configure:
+The Supabase Setup SQL is provided in the root file of the project in the Supabase Setup folder to accomplish the following. This project expects you to create your own Supabase project and configure:
 * A table named `items` with these columns:
   * `id` (uuid or bigint, primary key)
   * `type` (text: `lost` or `found`)
