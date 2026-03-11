@@ -17,6 +17,12 @@ This project seeks to remedy the issue of message boards and community informati
 * Browse submitted lost/found items
 * View item details
 * Submit a lost/found item with an image
+
+## Future Additions
+* Revamped Landing page
+* Search Bar and Filters
+* Claimed Item workflow
+* Form confirmation screen
   
 ## Getting Started:
 ### Requirements: 
