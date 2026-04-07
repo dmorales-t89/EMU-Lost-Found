@@ -1,7 +1,7 @@
 import { supabase } from './supabaseClient';
 
 const ITEM_COLUMNS =
-  'id, type, title, description, image_url, contact_info, current_location, date_event, event_location, created_at';
+  'id, type, title, description, image_url, status, current_location, date_event, event_location, created_at';
 
 const FALLBACK_TEXT = 'N/A';
 
@@ -52,7 +52,7 @@ export function mapItemRowToDetailItem(row) {
     title: normalizeText(row.title),
     type: normalizeText(row.type),
     description: normalizeText(row.description),
-    contactInfo: normalizeText(row.contact_info),
+    status: normalizeText(row.status),
     currentLocation: normalizeText(row.current_location),
     dateEvent: formatItemDate(row.date_event),
     eventLocation: normalizeText(row.event_location),
@@ -108,7 +108,11 @@ export async function createItem(formData) {
 }
 
 async function fetchItemsWithOrder(orderColumn, type) {
-  let query = supabase.from('items').select(ITEM_COLUMNS).order(orderColumn, { ascending: false });
+  let query = supabase
+    .from('items')
+    .select(ITEM_COLUMNS)
+    .eq('status', 'open')
+    .order(orderColumn, { ascending: false });
 
   if (type) {
     query = query.eq('type', type);

@@ -69,3 +69,23 @@ for select
 to anon
 using (bucket_id = 'lost-found-images');
 
+-- Claim Requests (optional, used by the request-claim edge function)
+create table if not exists public.claim_requests (
+  id uuid primary key default gen_random_uuid(),
+  item_id uuid not null references public.items(id) on delete cascade,
+  requestor_email text not null,
+  status text not null default 'pending'
+    check (status in ('pending', 'approved', 'rejected')),
+  created_at timestamptz not null default now()
+);
+
+alter table claim_requests enable row level security;
+
+-- Allow anyone to create a claim request (restrict/adjust as needed)
+drop policy if exists "Public claim insert" on claim_requests;
+create policy "Public claim insert"
+on claim_requests
+for insert
+to anon
+with check (true);
+

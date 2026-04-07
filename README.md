@@ -45,6 +45,11 @@ The Supabase Setup SQL is provided in the root file of the project in the Supaba
 * A Storage bucket named `lost-found-images`
 * Row Level Security/policies that allow the app to read and insert items (and upload/read images), depending on your security requirements.
 
+### Claim requests (optional)
+`ItemDetailPage` calls a Supabase Edge Function named `request-claim` to submit a claim request. The repo includes:
+* Table + policy: `lost-and-found/Supabase Setup/setup.sql` (creates `claim_requests`)
+* Edge function template: `lost-and-found/Supabase Setup/request-claim.edge.ts` (deploy as `request-claim`)
+
 ### Installation
 ```shell
 #1. Clone the repository:

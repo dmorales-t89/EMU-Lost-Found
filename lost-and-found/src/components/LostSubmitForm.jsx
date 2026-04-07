@@ -44,12 +44,12 @@ function LostSubmitForm() {
             </div>
 
             <div className="form-group">
-                <label htmlFor="dateEvent">Date Lost:</label>
+                <label htmlFor="dateEvent">Date Lost or Found:</label>
                 <input type="date" id="dateEvent" {...register("dateEvent")} />
             </div>
 
             <div className="form-group">
-                <label htmlFor="eventLocation">Location Lost:</label>
+                <label htmlFor="eventLocation">Location Lost or Found:</label>
                 <input type="text" id="eventLocation" {...register("eventLocation")} />
             </div>
 

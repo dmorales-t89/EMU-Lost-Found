@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { fetchItemById, ITEM_IMAGE_PLACEHOLDER } from '../lib/itemsApi';
+import ClaimItemModal from '../components/ClaimItemModal';
+import { supabase } from '../lib/supabaseClient';
+
 
 function ItemDetailPage() {
   const { id } = useParams();
@@ -9,6 +12,11 @@ function ItemDetailPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [notFound, setNotFound] = useState(false);
+  const [isClaimOpen, setIsClaimOpen] = useState(false);
+  const [claimSubmitting, setClaimSubmitting] = useState(false);
+  const [claimError, setClaimError] = useState('');
+
+  
 
   useEffect(() => {
     let isMounted = true;
@@ -77,6 +85,34 @@ function ItemDetailPage() {
     );
   }
 
+  const onClaimItem = () => {
+    setClaimError('');
+    setIsClaimOpen(true);
+  };
+
+  const onSubmitClaim = async ({ requestorEmail }) => {
+    setClaimSubmitting(true);
+    setClaimError('');
+    try {
+      const { error: invokeError } = await supabase.functions.invoke('request-claim', {
+        body: { itemId: item.id, requestorEmail },
+      });
+
+      if (invokeError) {
+        throw invokeError;
+      }
+
+      setIsClaimOpen(false);
+      alert('Claim request sent!');
+    } catch (e) {
+      console.error(e);
+      setClaimError(e?.message || 'Unable to send claim request. Please try again.');
+    } finally {
+      setClaimSubmitting(false);
+    }
+  };
+
+
   return (
     <main className="container item-detail">
       <button className="back-btn" onClick={() => navigate(-1)}>
@@ -92,6 +128,15 @@ function ItemDetailPage() {
             }}
           />
         </div>
+        <ClaimItemModal
+          isOpen={isClaimOpen}
+          itemTitle={item.title}
+          onClose={() => setIsClaimOpen(false)}
+          onSubmit={onSubmitClaim}
+          submitting={claimSubmitting}
+          errorMessage={claimError}
+        />
+
         <div className="item-detail-content">
           <h1>{item.title}</h1>
           <p><strong>Type:</strong> {item.type}</p>
@@ -99,7 +144,10 @@ function ItemDetailPage() {
           <p><strong>Current Location:</strong> {item.currentLocation}</p>
           <p><strong>Date Found:</strong> {item.dateEvent}</p>
           <p><strong>Location Lost:</strong> {item.eventLocation}</p>
-          <p><strong>Contact Info:</strong> {item.contactInfo}</p>
+          <p><strong>Status:</strong> {item.status}</p>
+          {item.status === "open" && (
+            <button className="claim-btn" onClick={onClaimItem}>Claim Item</button>
+          )}
         </div>
       </div>
     </main>

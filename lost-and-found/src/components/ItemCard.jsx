@@ -11,6 +11,7 @@ function ItemCard({
   dateEvent,
   eventLocation,
   onReadMore,
+  onClaimItem,
 }) {
   return (
     <div className="item-card">
@@ -40,9 +41,6 @@ function ItemCard({
         <div className="btns">
           <button className="read-more-btn" onClick={onReadMore}>
             Read More
-          </button>
-          <button className="claim-btn" onClick={onReadMore}>
-            Claim Item
           </button>
         </div>
       </div>
