@@ -120,13 +120,15 @@
 }
 
 .home-actions {
+  padding-top: 10px;
   display: flex;
   gap: 16px;
   flex-wrap: wrap;
 }
 
 .home-actions .btn-primary,
-.home-actions .btn-secondary {
+.home-actions .btn-secondary,
+.home-actions .btn-tertiary {
   padding: 10px 24px;
   border-radius: 4px;
   text-decoration: none;
@@ -136,6 +138,11 @@
 
 .home-actions .btn-primary {
   background-color: var(--primary-blue);
+  color: var(--white);
+}
+
+.home-actions .btn-tertiary {
+  background-color: #c42f2f;
   color: var(--white);
 }
 
@@ -153,6 +160,14 @@
   background-color: var(--primary-blue);
   color: var(--white);
 }
+
+.home-card {
+  background-color: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+} 
 
 /* ===== Item Detail Page ===== */
 .item-detail {
