@@ -15,9 +15,6 @@ function Navbar() {
           />
         </Link>
       </div>
-      <div className="navbar-actions">
-        <Link to="/login" className="sign-in-btn">SIGN IN</Link>
-      </div>
     </header>
   );
 }

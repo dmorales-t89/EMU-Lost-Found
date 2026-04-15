@@ -1,4 +1,4 @@
-// Supabase Edge Function: request-claim
+/* Supabase Edge Function: request-claim
 // Save as `supabase/functions/request-claim/index.ts` in your Supabase project.
 
 import { serve } from 'https://deno.land/std@0.224.0/http/server.ts';
@@ -88,4 +88,4 @@ serve(async (req) => {
     headers: { ...corsHeaders, 'Content-Type': 'application/json' },
   });
 });
-
+*/

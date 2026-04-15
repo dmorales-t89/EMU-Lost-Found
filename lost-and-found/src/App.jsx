@@ -6,7 +6,9 @@ import HomePage from './pages/HomePage';
 import LostItemsPage from './pages/LostItemsPage';
 import LostSubmitFormPage from './pages/LostSubmitFormPage';
 import ItemDetailPage from './pages/ItemDetailPage';
+import RequestConfirmPage from './pages/RequestConfirmPage';
 import './App.css';
+
 
 function App() {
   return (
@@ -17,6 +19,7 @@ function App() {
         <Route path="/lost-items" element={<LostItemsPage />} />
         <Route path="/lost-items/:id" element={<ItemDetailPage />} />
         <Route path="/lost-submit-form" element={<LostSubmitFormPage />} />
+        <Route path="/request-confirm" element={<RequestConfirmPage />} />
       </Routes>
       <Footer />
     </div>
