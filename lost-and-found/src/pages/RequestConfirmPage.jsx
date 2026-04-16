@@ -26,12 +26,12 @@ function RequestConfirmPage() {
   }
 
   return (
-    <main className="container">
-      <h1>{title}</h1>
+    <main className="container" >
+      <h1 >{title}</h1>
       <p>{message}</p>
 
-      <div style={{ display: 'flex', gap: 12 }}>
-        <button className="read-more-btn" onClick={() => navigate('/lost-items')}>
+      <div style={{ display: 'flex', gap: 12, justifyContent: 'center', marginTop: 20 }}>
+        <button className="claim-btn" onClick={() => navigate('/lost-items')}>
           Back to items
         </button>
 

@@ -334,7 +334,7 @@
 }
 
 .read-more-btn:hover {
-  background-color: var(--light-gray);
+  background-color: var(--secondary-blue);
 }
 
 .claim-btn:hover {
