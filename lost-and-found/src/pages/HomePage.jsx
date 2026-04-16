@@ -18,14 +18,6 @@ function HomePage() {
           <Link to="/lost-items" className="btn-secondary">Browse Found Items</Link>
           <Link to="/lost-submit-form" className="btn-tertiary">Report a Lost Item</Link>
         </div>
-        <p>
-          You can use our website to:
-          <ul>
-            <li>Browse posts of items people have lost or found</li>
-            <li>Report items you have found or lost</li>
-            <li>Connect with people through email to get items back to their owner</li>
-          </ul>
-        </p>
       </main>
     </>
   );
