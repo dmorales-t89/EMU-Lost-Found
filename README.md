@@ -2,8 +2,9 @@
 **Lost and Found** is a web app created for the Eastern Mennonite University campus to help its students report and find their lost items. The site prioritizes ease of use and simplicity in order to make this tool available for the diverse community on our campus.
 Users may:
 * Browse reported lost items
-* Report lost items belonging to someone else
+* Report found items that belong to others
 * Report items that have been lost
+* CLaim an item
 
 This project seeks to remedy the issue of message boards and community information areas getting cluttered and making it difficult to report and find lost items by creating a specialized space for this specific purpose. 
 
@@ -17,12 +18,13 @@ This project seeks to remedy the issue of message boards and community informati
 * Browse submitted lost/found items
 * View item details
 * Submit a lost/found item with an image
+* Receive email regarding claim or rejection info
 
 ## Future Additions
-* Revamped Landing page
 * Search Bar and Filters
-* Claimed Item workflow
-* Form confirmation screen
+* Official EMU Deployment
+* User Authorization (Through EMU)
+* Improved Mobile Responsiveness
   
 ## Getting Started:
 ### Requirements: 
@@ -35,27 +37,21 @@ This project seeks to remedy the issue of message boards and community informati
 Note: If npm fails to run the website or gives an error, try running: **npm install --include=dev**
 
 ## Supabase Setup (Required)
-The Supabase Setup SQL is provided in the root file of the project in the Supabase Setup folder to accomplish the following. This project expects you to create your own Supabase project and configure:
-* A table named `items` with these columns:
-  * `id` (uuid or bigint, primary key)
-  * `type` (text: `lost` or `found`)
-  * `title` (text)
-  * `description` (text, nullable)
-  * `image_url` (text, nullable)
-  * `contact_info` (text)
-  * `current_location` (text, nullable)
-  * `date_event` (date or timestamptz, nullable)
-  * `event_location` (text, nullable)
-  * `created_at` (timestamptz, default now())
+The Supabase Setup SQL is provided in the root file of the project in the Supabase Setup folder to accomplish the following. This project expects you to create your own Supabase project and configure the items and claim_requests tables.
 
 * A Storage bucket named `lost-found-images`
 * Row Level Security/policies that allow the app to read and insert items (and upload/read images), depending on your security requirements.
 
-### Claim requests (optional)
+### Claim requests
 `ItemDetailPage` calls a Supabase Edge Function named `request-claim` to submit a claim request. The repo includes:
 * Table + policy: `lost-and-found/Supabase Setup/setup.sql` (creates `claim_requests`)
 * Edge function template: `lost-and-found/Supabase Setup/request-claim.edge.ts` (deploy as `request-claim`)
 
+### Claim action
+You may access the claim-edge function through the Supabase Setup folder (lost-and-found/Supabase Setup). The claim edge function does the following. 
+* An email is sent to the person who created the lost/found item form if a requestor wants to claim the item.
+* The creator approves, rejects, or mentions the item is already claimed.
+* The requestor then gets an email with the updated status and the two people are able to now get in contact as the emails are displayed. 
 ### Installation
 ```shell
 #1. Clone the repository:
@@ -100,6 +96,26 @@ npm run dev
 | LostSubmitForm | /lost-submit-form | Form to submit lost or found items and post them to the LostItemsPage |
 
 The style is made to closely align with the Eastern Mennonite University website for user clarity and to give a sense of familiarity and pride.
+
+## Backend Architecture
+
+### System Components
+| Component | Technology | Description |
+| --- | --- | --- |
+| Database | Supabase (PostgreSQL) | Stores lost/found items and claim requests |
+| Storage | Supabase Storage | Handles uploaded item images |
+| API Layer | Supabase REST API | Auto-generated endpoints for CRUD operations |
+| Edge Functions | Supabase Edge Functions | Handles claim requests and email notifications |
+| Security | Row Level Security (RLS) | Controls access to database and storage resources |
+
+### Data Flow
+| Step | Action | Description |
+| --- | --- | --- |
+| 1 | Submit Item | User submits lost/found item → stored in database + image uploaded to storage |
+| 2 | Browse Items | Users retrieve items via Supabase API |
+| 3 | Request Claim | User submits claim → triggers `request-claim` Edge Function |
+| 4 | Owner Response | Item owner approves/rejects claim via email |
+| 5 | Notification | Requestor receives email with updated claim status |
 
 ## Deployment: 
 Deployed on Vercel for now. We hope to collaborate with EMU and get it hosted by their servers before the end of the quarter. If deploying your own fork, set Vercel Root Directory to lost-and-found and add the environment variables above. https://emu-lost-found.vercel.app/
