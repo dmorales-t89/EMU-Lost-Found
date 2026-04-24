@@ -51,7 +51,16 @@ The Supabase Setup SQL is provided in the root file of the project in the Supaba
 You may access the claim-edge function through the Supabase Setup folder (lost-and-found/Supabase Setup). The claim edge function does the following. 
 * An email is sent to the person who created the lost/found item form if a requestor wants to claim the item.
 * The creator approves, rejects, or mentions the item is already claimed.
-* The requestor then gets an email with the updated status and the two people are able to now get in contact as the emails are displayed. 
+* The requestor then gets an email with the updated status and the two people are able to now get in contact as the emails are displayed.
+
+### Secrets
+For the edge functions to work you must create the following Supabase secrets.
+* SUPABASE_URL
+* SUPABASE_SERVICE_ROLE_KEY
+* RESEND_API_KEY (If using resend for emails)
+* FROM_EMAIL
+* APP_URL
+
 ### Installation
 ```shell
 #1. Clone the repository:
