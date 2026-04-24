@@ -1,38 +1,62 @@
--- Lost and Found Items Table
 -- Enable UUID extension (safe to run even if already enabled)
 create extension if not exists "pgcrypto";
 
-create table if not exists public.items (
-
-  id uuid primary key default gen_random_uuid(),
-
-  -- lost or found
-  type text not null
-    check (type in ('lost', 'found')),
-
+-- Lost and Found Items Table
+create table public.items (
+  id uuid not null default gen_random_uuid (),
+  type text not null,
   title text not null,
-
-  description text,
-
-  -- where it was lost or found
-  event_location text,
-
-  -- where it is currently stored (optional)
-  current_location text,
-
-  date_event date,
-
+  description text null,
+  event_location text null,
+  current_location text null,
+  date_event date null,
   image_url text not null,
-
   contact_info text not null,
+  status text not null default 'open'::text,
+  created_at timestamp with time zone not null default now(),
+  constraint items_pkey primary key (id),
+  constraint items_status_check check (
+    (
+      status = any (
+        array['open'::text, 'claimed'::text, 'returned'::text]
+      )
+    )
+  ),
+  constraint items_type_check check ((type = any (array['lost'::text, 'found'::text])))
+) TABLESPACE pg_default;
 
-  -- lifecycle management
-  status text not null default 'open'
-    check (status in ('open', 'claimed', 'returned')),
+-- Claim_requests Table
+create table public.claim_requests (
+  id uuid not null default gen_random_uuid (),
+  item_id uuid not null,
+  requestor_email text not null,
+  status text not null default 'pending'::text,
+  decision_token_hash text null,
+  decision_expires_at timestamp with time zone null,
+  decided_at timestamp with time zone null,
+  created_at timestamp with time zone not null default now(),
+  action_token_hash text null,
+  action_token_expires_at timestamp with time zone null default (now() + '7 days'::interval),
+  action_token_used_at timestamp with time zone null,
+  constraint claim_requests_pkey primary key (id),
+  constraint claim_requests_item_id_fkey foreign KEY (item_id) references items (id) on delete CASCADE,
+  constraint claim_requests_status_check check (
+    (
+      status = any (
+        array[
+          'pending'::text,
+          'approved'::text,
+          'rejected'::text,
+          'returned'::text
+        ]
+      )
+    )
+  )
+) TABLESPACE pg_default;
 
-  created_at timestamptz not null default now()
-);
-
+create unique INDEX IF not exists claim_requests_action_token_hash_uq on public.claim_requests using btree (action_token_hash) TABLESPACE pg_default
+where
+  (action_token_hash is not null);
 
 -- Public access policies for items table
 -- Enable row level security
